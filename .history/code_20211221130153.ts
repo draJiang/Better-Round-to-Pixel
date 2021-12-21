@@ -35,7 +35,7 @@ function handleRoundToPixel(targetNode) {
     // 边框
     console.log('stroke----------');
     console.log(targetNode[i].strokeWeight);
-    if (targetNode[i].strokeWeight != undefined) {
+    if(targetNode[i].strokeWeight!=undefined){
       targetNode[i].strokeWeight = parseInt(targetNode[i].strokeWeight.toFixed(0)) // 边框
     }
     // 圆角
@@ -52,10 +52,10 @@ function handleRoundToPixel(targetNode) {
       } else {
         console.log('统一圆角');
         console.log(targetNode[i].cornerRadius);
-        if (targetNode[i].cornerRadius != undefined) {
+        if(targetNode[i].cornerRadius!=undefined){
           targetNode[i].cornerRadius = parseInt(targetNode[i].cornerRadius.toFixed(0)) // 整体圆角
         }
-
+        
       }
     } else if (targetNode[i].type == 'VECTOR') {
       continue
@@ -63,14 +63,11 @@ function handleRoundToPixel(targetNode) {
     }
 
     // Effects 阴影
-    // console.log('Effects 阴影----------');
-    // if (targetNode[i].effects != undefined) {
-    //   for (var j = 0; j < targetNode[i].effects.length; j++) {
-    //     targetNode[i].effects[j].offset.x = parseInt(targetNode[i].effects[j].offset.x.toFixed(0)) // x 偏移
-    //     targetNode[i].effects[j].offset.y = parseInt(targetNode[i].effects[j].offset.y.toFixed(0)) // y 偏移
-    //     targetNode[i].effects[j].radius = parseInt(targetNode[i].effects[j].radius.toFixed(0)) // Blur
-    //   }
-    // }
+    console.log('Effects 阴影----------');
+    for(var j = 0;j<targetNode.effects.length;j++){
+      targetNode[j].offset.x = parseInt(targetNode[j].offset.x.toFixed(0)) // x 偏移
+      targetNode[j].offset.y = parseInt(targetNode[j].offset.y.toFixed(0)) // y 偏移
+    }
 
     if (targetNode[i].children && targetNode[i].type != 'INSTANCE') {
       //如果是实例，则忽略子图层

@@ -63,14 +63,14 @@ function handleRoundToPixel(targetNode) {
     }
 
     // Effects 阴影
-    // console.log('Effects 阴影----------');
-    // if (targetNode[i].effects != undefined) {
-    //   for (var j = 0; j < targetNode[i].effects.length; j++) {
-    //     targetNode[i].effects[j].offset.x = parseInt(targetNode[i].effects[j].offset.x.toFixed(0)) // x 偏移
-    //     targetNode[i].effects[j].offset.y = parseInt(targetNode[i].effects[j].offset.y.toFixed(0)) // y 偏移
-    //     targetNode[i].effects[j].radius = parseInt(targetNode[i].effects[j].radius.toFixed(0)) // Blur
-    //   }
-    // }
+    console.log('Effects 阴影----------');
+    if (targetNode[i].effects != undefined) {
+      for (var j = 0; j < targetNode[i].effects.length; j++) {
+        targetNode[j].offset.x = parseInt(targetNode[j].offset.x.toFixed(0)) // x 偏移
+        targetNode[j].offset.y = parseInt(targetNode[j].offset.y.toFixed(0)) // y 偏移
+        targetNode[j].radius = parseInt(targetNode[j].radius.toFixed(0)) // Blur
+      }
+    }
 
     if (targetNode[i].children && targetNode[i].type != 'INSTANCE') {
       //如果是实例，则忽略子图层
